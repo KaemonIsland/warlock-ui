@@ -1,10 +1,16 @@
 {
   "name": "warlock-ui",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": false,
+  "main": "src/index.js",
+  "description": "This is a UI library of styled components",
+  "author": { 
+    "name": "Kaemon Lovendahl",
+    "email": "k-manskrazy@hotmail.com"
+  },
+  "repository": { "url": "https://github.com/KaemonIsland/warlock-ui"},
+  "license": "MIT",
   "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"
   },
   "scripts": {
@@ -27,5 +33,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
