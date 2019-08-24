@@ -1,30 +1,30 @@
-import { eslint } from 'rollup-plugin-eslint'
 import commonjs from 'rollup-plugin-commonjs'
-import nodeResolve from 'rollup-plugin-node-resolve'
+import resolve from 'rollup-plugin-node-resolve'
 import minify from 'rollup-plugin-babel-minify'
 import babel from 'rollup-plugin-babel'
+import pkg from './package.json'
+
+const external = Object.keys(pkg.dependencies || {})
+    .concat(Object.keys(pkg.peerDependencies || {}))
 
 module.exports = {
+    input: 'src/index.js',
+    output: [
+        { file: pkg.main, format: 'cjs' },
+        { file: pkg.module, format: 'es' },
+    ],
+    external,
     plugins: [
-        eslint({
-            throwOnError: true,
-        }),
-        nodeResolve({
-            jsnext: true,
-            main: true,
+        resolve({
+            extensions: ['.js', '.jsx']
         }),
         commonjs({
             exclude: 'node_modules/**',
             extensions: [ '.js', 'jsx' ]
         }),
-        minify({}),
         babel({
-            exclude: 'node_modules/**'
-        })
+            plugins: ['external-helpers'],
+        }),
+        minify({ comments: false}),
     ],
-    input: 'src/index.js',
-    output: {
-        file: [ 'index.js', 'index.esm.js' ],
-        format: 'esm'
-    }
 }

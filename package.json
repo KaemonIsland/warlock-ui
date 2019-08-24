@@ -3,6 +3,11 @@
   "version": "0.0.2",
   "private": false,
   "main": "index.js",
+  "module": "index.esm.js",
+  "files": [
+    "/*.js",
+    "/*.esm.js"
+  ],
   "description": "This is a UI library of styled components",
   "author": {
     "name": "Kaemon Lovendahl",
@@ -16,10 +21,9 @@
     "react-scripts": "3.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "rollup -c ./rollup.config.js",
+    "start": "rollup -w -c ./rollup.config.js",
+    "lint": "eslint . --ext=js --ext=jsx --ignore-path .gitignore"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,12 +41,17 @@
     ]
   },
   "devDependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.15.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-babel-minify": "^9.0.0",
     "rollup-plugin-commonjs": "^10.0.2",
-    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0"
   }
 }
