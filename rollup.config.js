@@ -19,11 +19,11 @@ module.exports = {
             extensions: ['.js', '.jsx']
         }),
         commonjs({
-            exclude: 'node_modules/**',
+            include: 'node_modules/**',
             extensions: [ '.js', 'jsx' ]
         }),
         babel({
-            plugins: ['external-helpers'],
+            plugins: ['@babel/external-helpers'],
         }),
         minify({ comments: false}),
     ],

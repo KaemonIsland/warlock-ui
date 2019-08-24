@@ -1,11 +1,11 @@
 {
     "presets": [
-        "react",
-        [ "env", { "modules": false } ]
+        "@babel/react",
+        [ "@babel/env", { "modules": false } ]
     ],
     "plugins": [
         "transform-object-rest-spread",
-        "external-helpers"
+        "@babel/external-helpers"
     ],
     "ignore": [
         "node_modules",
