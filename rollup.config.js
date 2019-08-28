@@ -7,6 +7,7 @@ import pkg from './package.json'
 const external = Object.keys(pkg.dependencies || {})
     .concat(Object.keys(pkg.peerDependencies || {}))
 
+/* eslint-disable */
 module.exports = {
     input: 'src/index.js',
     output: [
@@ -22,9 +23,7 @@ module.exports = {
             include: 'node_modules/**',
             extensions: [ '.js', 'jsx' ]
         }),
-        babel({
-            plugins: ['@babel/external-helpers'],
-        }),
+        babel({}),
         minify({ comments: false}),
     ],
 }
