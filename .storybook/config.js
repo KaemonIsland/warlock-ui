@@ -1,9 +1,18 @@
-import { configure } from '@storybook/react'
+import React from 'react'
+import { configure, addDecorator } from '@storybook/react'
+import { ThemeProvider } from '../src/theme'
 
 function loadStories() {
-  const req = require.context('../src', true, /\.story\.js$/)
+  const req = require.context('../src', true, /\.story\.js*/)
   req.keys().forEach(filename => req(filename))
 }
 
-configure(loadStories, module)
+const ProvideTheme = storyFn => (
+  <ThemeProvider>
+    {storyFn()}
+  </ThemeProvider>
+)
 
+addDecorator(ProvideTheme)
+
+configure(loadStories, module)
