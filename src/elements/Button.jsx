@@ -1,32 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-const StyledButton = styled.button(props => ({
-    color: props.theme.color,
-    backgroundColor: 'white',
-    padding: '1rem 2rem',
-    borderRadius: '1rem',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    transition: 'all 250ms ease-in-out',
-    border: '1px solid black',
-
-    '&:hover': {
-        transform: 'translateY(-3px)',
-        boxShadow: '0 0.4rem 0.5rem hsl(220, 100%, 15%)',
-        color: 'white',
-        backgroundColor: 'hsl(210, 5%, 42%)',
-    },
-    '&:active': {
-        transform: 'translateY(-1px)',
-        boxShadow: '0 0.2rem 0.3rem hsl(220, 100%, 15%)',
-    }
+const StyledButton = styled.button(({ theme, shadowColor }) => ({
+  fontSize: '1.1rem',
+  fontWeight: 'bold',
+  padding: '0.5rem 2rem',
+  borderRadius: '0.5rem',
+  transition: 'all 200ms',
+  margin: '1rem',
+  position: 'relative',
+  cursor: 'pointer',
+  color: 'black',
+  border: '1px solid black',
+  backgroundColor: 'white',
+  '&:hover, &:focus': {
+    transform: 'translateY(-0.3rem)',
+    boxShadow: theme.shadow[shadowColor].medium,
+  },
+  '&:active': {
+    outline: 'none',
+    transform: 'translateY(-0.1rem)',
+    boxShadow: theme.shadow[shadowColor].small,
+  },
 }))
 
-export const Button = () => {
-    return (
-        <StyledButton>
-            Button
-        </StyledButton>
-    )
+export const Button = ({ callback, title, shadowColor = 'primary' }) => (
+  <StyledButton onClick={callback} shadowColor={shadowColor}>
+    {title}
+  </StyledButton>
+)
+
+Button.propTypes = {
+  title: PropTypes.string.isRequired,
+  callback: PropTypes.func.isRequired,
+  shadowColor: PropTypes.oneOf(['gray', 'primary']),
 }

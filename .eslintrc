@@ -1,0 +1,11 @@
+{
+    "extends": ["warlock"],
+    "env": { "jest/globals": true },
+    "plugins": [
+        "react",
+        "jest"
+    ],
+    "rules": {
+        "import/no-extraneous-dependencies": 0
+    }
+}

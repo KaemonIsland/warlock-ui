@@ -1,6 +1,6 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
-import { ThemeProvider } from '../src/theme'
+import { ThemeProvider, GlobalStyles } from '../src/theme'
 
 function loadStories() {
   const req = require.context('../src', true, /\.story\.js*/)
@@ -9,6 +9,7 @@ function loadStories() {
 
 const ProvideTheme = storyFn => (
   <ThemeProvider>
+    <GlobalStyles />
     {storyFn()}
   </ThemeProvider>
 )
