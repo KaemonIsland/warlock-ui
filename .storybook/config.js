@@ -1,5 +1,6 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
+import { withKnobs } from '@storybook/addon-knobs'
 import { ThemeProvider, GlobalStyles } from '../src/theme'
 
 function loadStories() {
@@ -15,5 +16,6 @@ const ProvideTheme = storyFn => (
 )
 
 addDecorator(ProvideTheme)
+addDecorator(withKnobs)
 
 configure(loadStories, module)
