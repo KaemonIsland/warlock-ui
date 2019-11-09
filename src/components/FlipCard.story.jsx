@@ -1,16 +1,23 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-// import { text, select, boolean } from '@storybook/addon-knobs'
+import { select } from '@storybook/addon-knobs'
 import { FlipCard, CardSide } from '.'
 
-storiesOf('Components', module).add('ContentFlipper', () => (
+const flipOptions = {
+  horizontal: 'horizontal',
+  vertical: 'vertical',
+}
+
+storiesOf('Components', module).add('FlipCard', () => (
   <div
     style={{
       height: '10rem',
       width: '10rem',
     }}
   >
-    <FlipCard>
+    <FlipCard
+      flipDirection={select('Flip Direction', flipOptions, 'horizontal')}
+    >
       <CardSide side="front" backgroundColor="lightblue">
         Front
       </CardSide>

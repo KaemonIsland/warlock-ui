@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The FlipCard works! 1`] = `
+<div
+  className="FlipCard__StyledFlipCard-sc-1p0b7wp-0 lnxfDE"
+  onClick={[Function]}
+>
+  <div
+    className="FlipCard__StyledCardSide-sc-1p0b7wp-1 jzDYEp"
+  >
+    Front
+  </div>
+  <div
+    className="FlipCard__StyledCardSide-sc-1p0b7wp-1 kJKkGH"
+  >
+    Back
+  </div>
+</div>
+`;
