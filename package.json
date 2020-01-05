@@ -27,7 +27,6 @@
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
     "start": "rollup -w -c ./rollup.config.js",
-    "lint": "eslint . --ext=js --ext=jsx --ignore-path .gitignore",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook",
     "test": "jest",
