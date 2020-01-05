@@ -28,7 +28,9 @@
     "build": "rollup -c ./rollup.config.js",
     "start": "rollup -w -c ./rollup.config.js",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out",
+    "storybook:deploy": "storybook-to-ghpages",
+    "publish": "storybook:deploy -- --out=.out",
     "test": "jest",
     "test-update": "jest --updateSnapshot"
   },
