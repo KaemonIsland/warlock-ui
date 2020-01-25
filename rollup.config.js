@@ -4,12 +4,10 @@ import minify from 'rollup-plugin-babel-minify'
 import babel from 'rollup-plugin-babel'
 import pkg from './package.json'
 
-// prettier-ignore
 const external = Object.keys(pkg.dependencies || {}).concat(
-  Object.keys(pkg.peerDependencies || {}),
+  Object.keys(pkg.peerDependencies || {})
 )
 
-/* eslint-disable */
 module.exports = {
   input: 'src/index.js',
   output: [
