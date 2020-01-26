@@ -1,12 +1,12 @@
 {
   "name": "warlock-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
-  "main": "index.js",
-  "module": "index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "/*.js",
-    "/*.esm.js"
+    "dist/*.js",
+    "dist/*.esm.js"
   ],
   "description": "This is a UI library of styled components",
   "author": {
@@ -18,8 +18,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c ./rollup.config.js",
-    "start": "rollup -w -c ./rollup.config.js",
+    "build": "rollup -c ./rollup/rollup.config.js",
+    "start": "rollup -w -c ./rollup/rollup.config.js",
     "storybook": "start-storybook -p 9009",
     "storybook:build": "build-storybook",
     "test": "jest",
