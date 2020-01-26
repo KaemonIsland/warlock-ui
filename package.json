@@ -1,12 +1,11 @@
 {
   "name": "warlock-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
-    "dist/*.js",
-    "dist/*.esm.js"
+    "dist"
   ],
   "description": "This is a UI library of styled components",
   "author": {
@@ -23,7 +22,8 @@
     "storybook": "start-storybook -p 9009",
     "storybook:build": "build-storybook",
     "test": "jest",
-    "test-update": "jest --updateSnapshot"
+    "test-update": "jest --updateSnapshot",
+    "publish": "yarn build && npm publish --access public"
   },
   "browserslist": {
     "production": [
