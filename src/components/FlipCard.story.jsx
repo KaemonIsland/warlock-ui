@@ -1,29 +1,36 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { select } from '@storybook/addon-knobs'
-import { FlipCard, CardSide } from '.'
+import { FlipCard, CardSide } from './FlipCard'
+import FlipReadMe from './FlipCard.md'
 
 const flipOptions = {
   horizontal: 'horizontal',
   vertical: 'vertical',
 }
 
-storiesOf('Components', module).add('FlipCard', () => (
-  <div
-    style={{
-      height: '10rem',
-      width: '10rem',
-    }}
-  >
-    <FlipCard
-      flipDirection={select('Flip Direction', flipOptions, 'horizontal')}
+storiesOf('Components', module)
+  .addParameters({
+    readme: {
+      sidebar: FlipReadMe,
+    },
+  })
+  .add('FlipCard', () => (
+    <div
+      style={{
+        height: '10rem',
+        width: '10rem',
+      }}
     >
-      <CardSide side="front" backgroundColor="lightblue">
-        Front
-      </CardSide>
-      <CardSide side="back" backgroundColor="lightgreen">
-        Back
-      </CardSide>
-    </FlipCard>
-  </div>
-))
+      <FlipCard
+        flipDirection={select('Flip Direction', flipOptions, 'horizontal')}
+      >
+        <CardSide side="front" backgroundColor="lightblue">
+          Front
+        </CardSide>
+        <CardSide side="back" backgroundColor="lightgreen">
+          Back
+        </CardSide>
+      </FlipCard>
+    </div>
+  ))

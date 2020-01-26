@@ -1,2 +1,2 @@
-export * from './FlipCard'
-export * from './MagicCard'
+export { FlipCard } from './FlipCard'
+export { MagicCard } from './MagicCard'
