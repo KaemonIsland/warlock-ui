@@ -17,13 +17,6 @@
     "url": "https://github.com/KaemonIsland/warlock-ui"
   },
   "license": "MIT",
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.1",
-    "styled-components": "^4.3.2"
-  },
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
     "start": "rollup -w -c ./rollup.config.js",
@@ -71,5 +64,11 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "storybook-readme": "^5.0.8",
     "warlock-config": "^1.0.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-scripts": "^3.3.0",
+    "styled-components": "^5.0.0"
   }
 }
