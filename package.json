@@ -1,6 +1,6 @@
 {
   "name": "warlock-ui",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -22,8 +22,7 @@
     "storybook": "start-storybook -p 9009",
     "storybook:build": "build-storybook",
     "test": "jest",
-    "test-update": "jest --updateSnapshot",
-    "publish": "yarn build && npm publish --access public"
+    "test-update": "jest --updateSnapshot"
   },
   "browserslist": {
     "production": [
