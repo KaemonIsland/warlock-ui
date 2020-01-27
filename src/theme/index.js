@@ -1,2 +1,2 @@
-export * from './ThemeProvider'
-export * from './GlobalStyles'
+export { ThemeProvider } from './ThemeProvider'
+export { GlobalStyles } from './GlobalStyles'

@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer'
 import React from 'react'
-import { Button, ThemeProvider } from '..'
+import { Button, ThemeProvider } from '../..'
 
 // prettier-ignore
 test('The Button works!', () => {
