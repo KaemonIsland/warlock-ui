@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { formatSpacing } from '../utils'
+import { formatSpacing } from '../../theme/spacing'
 
 // prettier-ignore
 const StyledContainer = styled.div(
