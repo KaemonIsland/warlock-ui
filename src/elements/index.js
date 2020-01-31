@@ -1,3 +1,3 @@
-export { Button } from './Button'
-export { Divider } from './Divider'
-export { Image } from './Image'
+export { Button } from './Button/Button'
+export { Divider } from './Divider/Divider'
+export { Image } from './Image/Image'

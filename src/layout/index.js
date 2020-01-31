@@ -1,3 +1,3 @@
-export { Container } from './Container'
-export { Flex } from './Flex'
-export { Grid } from './Grid'
+export { Container } from './Container/Container'
+export { Flex } from './Flex/Flex'
+export { Grid } from './Grid/Grid'

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Image } from '../elements'
+import { Image } from '../../elements'
 
 const FallbackContainer = styled.section`
   text-align: center;

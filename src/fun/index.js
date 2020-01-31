@@ -1,1 +1,1 @@
-export { MagicCard } from '../MagicCard'
+export { MagicCard } from './MagicCard/MagicCard'
