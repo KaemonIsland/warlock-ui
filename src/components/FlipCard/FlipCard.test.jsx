@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer'
 import React from 'react'
-import { FlipCard, CardSide } from '.'
-import { ThemeProvider } from '..'
+import { FlipCard, CardSide } from '..'
+import { ThemeProvider } from '../..../'
 
 // prettier-ignore
 test('The FlipCard works!', () => {

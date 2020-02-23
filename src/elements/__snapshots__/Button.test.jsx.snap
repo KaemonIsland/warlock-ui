@@ -2,7 +2,7 @@
 
 exports[`The Button works! 1`] = `
 <button
-  className="Button__StyledButton-sc-4zekuf-0 jFyzKS"
+  className="Button__StyledButton-sc-4zekuf-0 hKlGaw"
   onClick={[Function]}
 >
   Click me

@@ -2,16 +2,16 @@
 
 exports[`The FlipCard works! 1`] = `
 <div
-  className="FlipCard__StyledFlipCard-sc-1p0b7wp-0 lnxfDE"
+  className="FlipCard__StyledFlipCard-sc-1p0b7wp-0 liCTAA"
   onClick={[Function]}
 >
   <div
-    className="FlipCard__StyledCardSide-sc-1p0b7wp-1 jzDYEp"
+    className="FlipCard__StyledCardSide-sc-1p0b7wp-1 fMEwyZ"
   >
     Front
   </div>
   <div
-    className="FlipCard__StyledCardSide-sc-1p0b7wp-1 kJKkGH"
+    className="FlipCard__StyledCardSide-sc-1p0b7wp-1 fIdZxG"
   >
     Back
   </div>

@@ -1,2 +1,3 @@
-export * from './FlipCard'
-export * from './MagicCard'
+export { FlipCard, CardSide } from './FlipCard/FlipCard'
+export { Fallback } from './Fallback/Fallback'
+export { Disclosure } from './Disclosure/Disclosure'

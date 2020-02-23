@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Work Sans', sans-serif;
+  font-family: Rubik, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -35,10 +35,6 @@ dl,
 dd {
   margin: 0;
   padding: 0;
-}
-
-body {
-  padding: 0 1.5rem;
 }
 
 /* Set core body defaults */

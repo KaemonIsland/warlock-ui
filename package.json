@@ -1,12 +1,11 @@
 {
   "name": "warlock-ui",
-  "version": "0.0.5",
+  "version": "0.1.2",
   "private": false,
-  "main": "index.js",
-  "module": "index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "/*.js",
-    "/*.esm.js"
+    "dist"
   ],
   "description": "This is a UI library of styled components",
   "author": {
@@ -17,16 +16,9 @@
     "url": "https://github.com/KaemonIsland/warlock-ui"
   },
   "license": "MIT",
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.1",
-    "styled-components": "^4.3.2"
-  },
   "scripts": {
-    "build": "rollup -c ./rollup.config.js",
-    "start": "rollup -w -c ./rollup.config.js",
+    "build": "rollup -c ./rollup/rollup.config.js",
+    "start": "rollup -w -c ./rollup/rollup.config.js",
     "storybook": "start-storybook -p 9009",
     "storybook:build": "build-storybook",
     "test": "jest",
@@ -49,6 +41,7 @@
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-a11y": "^5.3.9",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-knobs": "^5.1.11",
     "@storybook/addon-links": "^5.1.11",
@@ -70,5 +63,11 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "storybook-readme": "^5.0.8",
     "warlock-config": "^1.0.1"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-scripts": "^3.3.0",
+    "styled-components": "^5.0.0"
   }
 }
