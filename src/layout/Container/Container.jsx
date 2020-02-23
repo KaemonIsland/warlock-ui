@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { formatSpacing } from '../../theme/spacing'
+import { formatPaddingAndMargin } from '../../theme/spacing'
 
 // prettier-ignore
 const StyledContainer = styled.div(
@@ -32,7 +32,7 @@ const StyledContainer = styled.div(
     shadowSize,
     theme,
   }) => {
-    const formattedPadding = formatSpacing(
+    const formattedPadding = formatPaddingAndMargin(
       padding,
       paddingVertical,
       paddingHorizontal,
@@ -41,7 +41,7 @@ const StyledContainer = styled.div(
       paddingLeft,
       paddingRight,
     )
-    const formattedMargin = formatSpacing(
+    const formattedMargin = formatPaddingAndMargin(
       margin,
       marginVertical,
       marginHorizontal,

@@ -1,3 +1,5 @@
+import { sizeSystem } from './spacing'
+
 export const theme = {
   palette: {
     primary: {
@@ -23,6 +25,7 @@ export const theme = {
       small: '5px 5px 5px -2.5px hsl(0, 0%, 15%)',
     },
   },
+  sizeSystem,
   // Based off of max-width
   breakpoint: {
     large: '1200px',
