@@ -1,8 +1,8 @@
-# Sizing 📐
+# Spacing 📐
 
 ## Usage
 
-Sizing is used to define the sizes of fonts, padding, margins etc.
+Spacing is used to define the sizes of fonts, padding, margins etc.
 
 It's a predefined system that is a part of the theme that can be accessed from themeProvider. It is also exported as formatSize globally.
 
@@ -10,11 +10,11 @@ There are 16 sizes in all. 1 being the smallest and 16 being the largest.
 
 ### formatSize
 
-The primary way to use the sizing system is with formatSize. It accepts two params, 'size' and 'unit'.
+The primary way to use the spacing system is with formatSize. It accepts two params, 'size' and 'unit'.
 
 | Param | Default Value | Required? | Description                                                       |
 | ----- | ------------- | --------- | ----------------------------------------------------------------- |
-| size  | 4             | Yes       | Must be between 1-16, returns the size from the sizeSystem        |
+| size  | 4             | Yes       | Must be between 1-16, returns the size from the spaceSystem       |
 | unit  | 'rem'         | no        | Specifies unit of measurement. Other options are 'px', 'em', etc. |
 
 ## Size System

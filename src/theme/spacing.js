@@ -54,12 +54,12 @@ export const formatPaddingAndMargin = (
     spacingArr[3] = spacingLeft
   }
 
-  return spacingArr.map(unit => formatSize(unit)).join(' ')
+  return spacingArr.map(unit => formatSpace(unit)).join(' ')
 }
 
 // Range of sizes used for fonts/padding/margin etc.
 // Range from 1-16. 1 = smallest, 16 = largest
-export const sizeSystem = {
+export const spaceSystem = {
   1: 0.25, // 4px
   2: 0.5, // 8px
   3: 0.75, // 12px
@@ -79,13 +79,13 @@ export const sizeSystem = {
 }
 
 /**
- * Formats a size to use sizeSystem values. uses 'rem'
+ * Formats a size to use spaceSystem values. uses 'rem'
  * by default.
- * @param {number} size - based off of sizeSystem, 0-16
+ * @param {number} size - based off of spaceSystem, 0-16
  * @param {string} unit - unit of measurement 'rem' 'em'
  *
  * @returns {string} formatted sizeMeasurement
  */
-export const formatSize = (size = 4, unit = 'rem') => {
-  return `${sizeSystem[size]}${unit}`
+export const formatSpace = (size = 4, unit = 'rem') => {
+  return `${spaceSystem[size]}${unit}`
 }
