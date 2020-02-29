@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const ImageContainer = styled.figure(({ theme, height, width }) => ({
   maxWidth: width,
   height,
-  border: '3px solid transparent',
   borderRadius: '1rem',
   overflow: 'hidden',
   boxShadow: theme.shadow.gray.medium,

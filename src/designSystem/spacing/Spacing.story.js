@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { formatSpace } from '../../theme/spacing'
-import Spacing from './Spacing.md'
+import spacing from './spacing.md'
 
 const StyledBox = styled.div`
   width: ${({ size }) => formatSpace(size)};
@@ -15,7 +15,7 @@ const sizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 storiesOf('Design System', module)
   .addParameters({
     readme: {
-      sidebar: Spacing,
+      sidebar: spacing,
     },
   })
   .add('Spacing', () => (

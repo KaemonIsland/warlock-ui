@@ -13,9 +13,9 @@ export const fontSizes = {
 }
 
 /**
- * Formats a size to use spaceSystem values. uses 'rem'
+ * Formats a size to use fontSizes values. uses 'rem'
  * by default.
- * @param {number} size - based off of spaceSystem, 0-16
+ * @param {number} size - based off of fontSizes, 0-11
  * @param {string} unit - unit of measurement 'rem' 'em'
  *
  * @returns {string} formatted sizeMeasurement

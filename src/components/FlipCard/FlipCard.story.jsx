@@ -20,16 +20,17 @@ storiesOf('Components', module)
       style={{
         height: '10rem',
         width: '10rem',
+        margin: '1rem 0 0 1rem',
       }}
     >
       <FlipCard
         flipDirection={select('Flip Direction', flipOptions, 'horizontal')}
       >
         <CardSide side="front" backgroundColor="lightblue">
-          Front
+          Click me to flip!
         </CardSide>
         <CardSide side="back" backgroundColor="lightgreen">
-          Back
+          Wow there is a full other side here!
         </CardSide>
       </FlipCard>
     </div>

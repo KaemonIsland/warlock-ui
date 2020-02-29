@@ -14,7 +14,7 @@ The primary way to use the spacing system is with formatSize. It accepts two par
 
 | Param | Default Value | Required? | Description                                                       |
 | ----- | ------------- | --------- | ----------------------------------------------------------------- |
-| size  | 4             | Yes       | Must be between 1-16, returns the size from the spaceSystem       |
+| size  | 4             | Yes       | Must be between 1-16, returns the size from the spacing           |
 | unit  | 'rem'         | no        | Specifies unit of measurement. Other options are 'px', 'em', etc. |
 
 ## Size System

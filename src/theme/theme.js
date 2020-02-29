@@ -1,5 +1,6 @@
-import { spaceSystem } from './spacing'
+import { spacing } from './spacing'
 import { fontSizes } from './typography'
+import { color } from './color'
 
 export const theme = {
   palette: {
@@ -26,8 +27,9 @@ export const theme = {
       small: '5px 5px 5px -2.5px hsl(0, 0%, 15%)',
     },
   },
-  spaceSystem,
+  spacing,
   fontSizes,
+  color,
   // Based off of max-width
   breakpoint: {
     large: '1200px',
