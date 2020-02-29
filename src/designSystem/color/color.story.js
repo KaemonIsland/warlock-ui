@@ -12,7 +12,7 @@ const ColorSwatch = styled.div(({ theme, color, variant }) => ({
   background: theme.color[color][variant],
   width: theme.formatSpace(10),
   height: theme.formatSpace(8),
-  borderRadius: theme.formatSpace(2),
+  borderRadius: theme.formatSpace(1),
   color: theme.getTextContrast(theme.color[color][variant]),
 }))
 
@@ -26,7 +26,7 @@ const SwatchContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  grid-gap: 1rem;
+  grid-gap: ${({ theme }) => theme.formatSpace(1)};
   justify-items: center;
   align-items: center;
 `

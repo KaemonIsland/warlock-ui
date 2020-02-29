@@ -1,6 +1,7 @@
 import { spacing, formatSpace } from './spacing'
 import { fontSizes, formatFontSize } from './typography'
 import { color, getTextContrast } from './color'
+import { boxShadow } from './boxShadow'
 
 export const theme = {
   palette: {
@@ -27,6 +28,7 @@ export const theme = {
       small: '5px 5px 5px -2.5px hsl(0, 0%, 15%)',
     },
   },
+  boxShadow,
   spacing,
   formatSpace,
   fontSizes,
