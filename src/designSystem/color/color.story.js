@@ -10,13 +10,16 @@ const colors = Object.keys(colorPalette)
 
 const ColorSwatch = styled.div(({ theme, color, variant }) => ({
   background: theme.color[color][variant],
-  width: theme.spacing[9] * 1 + 'rem',
-  height: theme.spacing[7] * 1 + 'rem',
-  borderRadius: '0.5rem',
+  width: theme.formatSpace(10),
+  height: theme.formatSpace(8),
+  borderRadius: theme.formatSpace(2),
+  color: theme.getTextContrast(theme.color[color][variant]),
 }))
 
 const ColorVariant = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes[1] * 1}rem;
+  font-size: ${({ theme }) => theme.formatFontSize(1)};
+  text-align: center;
+  font-weight: bold;
 `
 
 const SwatchContainer = styled.div`
@@ -43,8 +46,9 @@ storiesOf('Design System', module)
           <SwatchContainer>
             {Object.keys(colorPalette[color]).map(variant => (
               <div key={variant}>
-                <ColorSwatch color={color} variant={variant} />
-                <ColorVariant>{colorPalette[color][variant]}</ColorVariant>
+                <ColorSwatch color={color} variant={variant}>
+                  <ColorVariant>{colorPalette[color][variant]}</ColorVariant>
+                </ColorSwatch>
               </div>
             ))}
           </SwatchContainer>

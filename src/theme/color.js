@@ -1,4 +1,106 @@
 /**
+ * Converts HSL values to rgb values
+ * Hue can be in the form of 0 - 360, deg, rad, or turn
+ * @param {string} hsl - The hsl string value "hsl(360, 50%, 50%)"
+ * @returns {string} rgb string
+ *
+ * More color conversions:
+ * https://css-tricks.com/converting-color-spaces-in-javascript/
+ */
+export const hslToRgb = hsl => {
+  // finds the separator value
+  let separated = hsl.indexOf(',') > -1 ? ',' : ' '
+
+  // splits the hsl value by the separator
+  const splitHsl = hsl
+    .substr(4)
+    .split(')')[0]
+    .split(separated)
+
+  let hue = splitHsl[0]
+
+  // saturation and lightness must be fractions of 1
+  const saturation = splitHsl[1].substr(0, splitHsl[1].length - 1) / 100
+  const lightness = splitHsl[2].substr(0, splitHsl[2].length - 1) / 100
+
+  // Strip label and convert to degrees (if necessary)
+  if (hue.indexOf('deg') > -1) hue = hue.substr(0, hue.length - 3)
+  else if (hue.indexOf('rad') > -1)
+    hue = Math.round(hue.substr(0, hue.length - 3) * (180 / Math.PI))
+  else if (hue.indexOf('turn') > -1)
+    hue = Math.round(hue.substr(0, hue.length - 4) * 360)
+  // Keep hue fraction of 360 if ending up over
+  if (hue >= 360) hue %= 360
+
+  // Color intensity
+  const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation
+
+  // Second largest component next to chroma
+  const x = chroma * (1 - Math.abs(((hue / 60) % 2) - 1))
+
+  // Amount to add to each value to match lightness
+  const matchLightness = lightness - chroma / 2
+
+  // RGB values
+  let r = 0
+  let g = 0
+  let b = 0
+
+  // All the fun calculations
+  if (0 <= hue && hue < 60) {
+    r = chroma
+    g = x
+    b = 0
+  } else if (60 <= hue && hue < 120) {
+    r = x
+    g = chroma
+    b = 0
+  } else if (120 <= hue && hue < 180) {
+    r = 0
+    g = chroma
+    b = x
+  } else if (180 <= hue && hue < 240) {
+    r = 0
+    g = x
+    b = chroma
+  } else if (240 <= hue && hue < 300) {
+    r = x
+    g = 0
+    b = chroma
+  } else if (300 <= hue && hue < 360) {
+    r = chroma
+    g = 0
+    b = x
+  }
+  r = Math.round((r + matchLightness) * 255)
+  g = Math.round((g + matchLightness) * 255)
+  b = Math.round((b + matchLightness) * 255)
+
+  // This returns an rgb string
+  // return 'rgb(' + r + ',' + g + ',' + b + ')'
+
+  // This returns rgb values in an array
+  return [r, g, b]
+}
+
+/**
+ * Decides if the text color should be black or white
+ * based off of the background color. This uses the suggested
+ * formula from W3C.
+ * https://www.w3.org/TR/AERT/#color-contrast
+ */
+export const getTextContrast = hsl => {
+  // convert hsl to rgb for contrast
+  const [r, g, b] = hslToRgb(hsl)
+
+  // Contrast value
+  const contrast = Math.round(
+    (parseInt(r) * 299 + parseInt(g) * 587 + parseInt(b) * 114) / 1000
+  )
+  return contrast > 125 ? 'black' : 'white'
+}
+
+/**
  * Various color swatches for themed use.
  * Each color has 10 variants ranging from 1-10
  * 10 = darkest variation

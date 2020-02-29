@@ -1,6 +1,6 @@
-import { spacing } from './spacing'
-import { fontSizes } from './typography'
-import { color } from './color'
+import { spacing, formatSpace } from './spacing'
+import { fontSizes, formatFontSize } from './typography'
+import { color, getTextContrast } from './color'
 
 export const theme = {
   palette: {
@@ -28,8 +28,11 @@ export const theme = {
     },
   },
   spacing,
+  formatSpace,
   fontSizes,
+  formatFontSize,
   color,
+  getTextContrast,
   // Based off of max-width
   breakpoint: {
     large: '1200px',
