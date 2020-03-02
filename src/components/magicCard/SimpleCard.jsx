@@ -13,14 +13,9 @@ const CardContainer = styled.div`
   color: ${({ theme }) => theme.getTextContrast(theme.color.blue[9])};
   background-color: ${({ theme }) => theme.color.blue[9]};
   border-radius: 2rem;
-  box-shadow: ${({ theme }) => theme.boxShadow.outset(theme.color.blue[3])};
   cursor: pointer;
   transition: all 300ms ease-out;
 `
-// &:hover {
-//   box-shadow: 0 8px 12px black;
-//   transform: translateY(-4px);
-// }
 
 const CardInfo = styled.div`
   display: flex;
