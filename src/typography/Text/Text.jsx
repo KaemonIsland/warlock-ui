@@ -15,7 +15,7 @@ export const Text = ({
   children,
   ...rest
 }) => {
-  const textProps = { size, isBold, isItalics, rest }
+  const textProps = { size, isBold, isItalics, ...rest }
   return <TextContainer {...textProps}>{children}</TextContainer>
 }
 

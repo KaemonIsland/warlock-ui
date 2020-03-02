@@ -2,26 +2,29 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Image } from '../../elements'
+import { Text } from '../../typography'
 
-const FallbackContainer = styled.section`
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  & figure {
-    margin-bottom: 1.5rem;
-  }
-  & h4 {
-    margin-bottom: 1.5rem;
-  }
-`
+const FallbackContainer = styled.section(({ theme }) => ({
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyItems: 'center',
+  width: '100%',
+  '& figure': {
+    marginBottom: theme.formatSpace(4),
+  },
+  '& h4': {
+    marginBottom: theme.formatSpace(2),
+  },
+}))
 
 export const Fallback = ({ image, imageAlt, message, children }) => (
   <FallbackContainer>
-    <Image width="20rem" image={image} alt={imageAlt} />
-    <h4>{message}</h4>
+    <Image width="12" image={image} alt={imageAlt} />
+    <Text size="7" as="h4">
+      {message}
+    </Text>
     {children}
   </FallbackContainer>
 )

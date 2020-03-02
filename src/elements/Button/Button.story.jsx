@@ -9,11 +9,13 @@ const shadowColorOpt = {
 }
 
 storiesOf('Elements', module).add('Button', () => (
-  <Button
-    title={text('Title', 'Click Me')}
-    shadowColor={select('Shadow Color', shadowColorOpt, 'primary')}
-    isFullwidth={boolean('isFullwidth', false)}
-  >
-    Click Me!
-  </Button>
+  <div style={{ margin: '1rem' }}>
+    <Button
+      title={text('Title', 'Click Me')}
+      shadowColor={select('Shadow Color', shadowColorOpt, 'primary')}
+      isFullwidth={boolean('isFullwidth', false)}
+    >
+      Click Me!
+    </Button>
+  </div>
 ))

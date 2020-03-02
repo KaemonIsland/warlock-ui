@@ -66,7 +66,7 @@ const StyledCardSide = styled.div(
       backgroundColor,
       transform: side === 'front' ? front : back,
       padding: isPaddingless ? 'auto' : '0.5rem',
-      boxShadow: theme.shadow.primary.medium,
+      boxShadow: theme.boxShadow.single[2],
       position: 'absolute',
       transformStyle: 'preserve-3d',
       transition: 'all 400ms ease',
@@ -82,7 +82,7 @@ const StyledCardSide = styled.div(
 )
 
 export const CardSide = ({
-  backgroundColor = 'lightblue',
+  backgroundColor,
   side,
   isPaddingless = false,
   flipDirection,

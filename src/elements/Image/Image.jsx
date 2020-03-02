@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ImageContainer = styled.figure(({ theme, height, width }) => ({
-  maxWidth: width,
-  height,
+  maxWidth: theme.formatSpace(width),
+  height: theme.formatSpace(height),
   borderRadius: '1rem',
   overflow: 'hidden',
-  boxShadow: theme.shadow.gray.medium,
+  boxShadow: theme.boxShadow.single[1],
 }))
 
 const StyledImage = styled.img`
@@ -19,8 +19,8 @@ const StyledImage = styled.img`
 export const Image = ({
   image,
   alt,
-  width,
-  height,
+  width = 12,
+  height = 12,
 }) => {
   const styles = {
     width,

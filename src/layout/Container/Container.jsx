@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { formatPaddingAndMargin } from '../../theme/spacing'
 
-// prettier-ignore
 const StyledContainer = styled.div(
   ({
     border,
@@ -28,8 +27,6 @@ const StyledContainer = styled.div(
     marginVertical,
     marginHorizontal,
     shadow,
-    shadowColor,
-    shadowSize,
     theme,
   }) => {
     const formattedPadding = formatPaddingAndMargin(
@@ -39,7 +36,7 @@ const StyledContainer = styled.div(
       paddingTop,
       paddingBottom,
       paddingLeft,
-      paddingRight,
+      paddingRight
     )
     const formattedMargin = formatPaddingAndMargin(
       margin,
@@ -48,7 +45,7 @@ const StyledContainer = styled.div(
       marginTop,
       marginBottom,
       marginLeft,
-      marginRight,
+      marginRight
     )
 
     return {
@@ -62,9 +59,9 @@ const StyledContainer = styled.div(
       margin: formattedMargin,
       borderRadius: '0.5rem',
       border: border ? '1px solid black' : 'none',
-      boxShadow: shadow ? theme.shadow[shadowColor][shadowSize] : '',
+      boxShadow: shadow ? theme.boxShadow.single[shadow] : '',
     }
-  },
+  }
 )
 
 export const Container = ({
@@ -89,9 +86,7 @@ export const Container = ({
   marginRight,
   marginVertical,
   marginHorizontal,
-  shadow = false,
-  shadowColor = 'primary',
-  shadowSize = 'medium',
+  shadow,
   children,
 }) => {
   const containerStyles = {
@@ -117,8 +112,6 @@ export const Container = ({
     marginVertical,
     marginHorizontal,
     shadow,
-    shadowColor,
-    shadowSize,
   }
 
   return <StyledContainer {...containerStyles}>{children}</StyledContainer>
@@ -147,7 +140,5 @@ Container.propTypes = {
   marginRight: PropTypes.string,
   marginVertical: PropTypes.string,
   marginHorizontal: PropTypes.string,
-  shadow: PropTypes.bool,
-  shadowColor: PropTypes.oneOf(['primary', 'gray']),
-  shadowSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  shadow: PropTypes.number,
 }
