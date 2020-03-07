@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { formatSpace } from '../../theme/spacing'
-import spacing from './spacing.md'
+import spacing from './Spacing.md'
 
 const StyledBox = styled.div`
   width: ${({ size }) => formatSpace(size)};
