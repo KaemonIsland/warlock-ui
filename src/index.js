@@ -1,5 +1,6 @@
 export * from './components'
 export * from './elements'
+export * from './typography'
 export * from './fun'
 export * from './hooks'
 export * from './layout'
