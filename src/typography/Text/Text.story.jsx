@@ -1,9 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { text, boolean, number } from '@storybook/addon-knobs'
+import { text, boolean, number, select } from '@storybook/addon-knobs'
 import { fontScale } from '../../theme/typography'
 import { Text } from './Text'
 import textReadme from './Text.md'
+import { colorList } from '../../utils'
 
 const sizes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
@@ -11,6 +12,13 @@ const sizeOptions = {
   range: true,
   min: 1,
   max: 11,
+  step: 1,
+}
+
+const shadeOptions = {
+  range: true,
+  min: 1,
+  max: 10,
   step: 1,
 }
 
@@ -26,13 +34,16 @@ storiesOf('Typography', module)
         size={number('Size', 4, sizeOptions)}
         isBold={boolean('isBold', false)}
         isItalics={boolean('isItalics', false)}
+        color={select('Color', { black: 'black', ...colorList }, 'black')}
+        shade={number('Shade', 10, shadeOptions)}
       >
-        {text('Content', 'You can edit me!')}
-      </Text>
+        {' '}
+        {text('Content', 'You can edit me!')}{' '}
+      </Text>{' '}
       {sizes.map(size => (
         <>
-          <Text size={size}>Size: {fontScale(size)}</Text>
+          <Text size={size}> Size: {fontScale(size)} </Text>{' '}
         </>
-      ))}
+      ))}{' '}
     </div>
   ))
