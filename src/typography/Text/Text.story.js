@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { text, boolean, number } from '@storybook/addon-knobs'
-import { formatFontSize } from '../../theme/typography'
+import { fontScale } from '../../theme/typography'
 import { Text } from './Text'
 import textReadme from './Text.md'
 
@@ -31,7 +31,7 @@ storiesOf('Typography', module)
       </Text>
       {sizes.map(size => (
         <>
-          <Text size={size}>Size: {formatFontSize(size)}</Text>
+          <Text size={size}>Size: {fontScale(size)}</Text>
         </>
       ))}
     </div>

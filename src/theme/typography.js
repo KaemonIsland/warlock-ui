@@ -20,6 +20,6 @@ export const fontSizes = {
  *
  * @returns {string} formatted sizeMeasurement
  */
-export const formatFontSize = (size = 3, unit = 'rem') => {
+export const fontScale = (size = 3, unit = 'rem') => {
   return `${fontSizes[size]}${unit}`
 }

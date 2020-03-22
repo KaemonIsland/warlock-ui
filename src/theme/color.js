@@ -89,7 +89,7 @@ export const hslToRgb = hsl => {
  * formula from W3C.
  * https://www.w3.org/TR/AERT/#color-contrast
  */
-export const getTextContrast = hsl => {
+export const textContrast = hsl => {
   // convert hsl to rgb for contrast
   const [r, g, b] = hslToRgb(hsl)
 

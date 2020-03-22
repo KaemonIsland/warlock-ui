@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { formatSpace } from '../../theme/spacing'
+import { spaceScale } from '../../theme/spacing'
 
 const StyledGridItem = styled.div(
   ({ column, row, area, justifySelf, alignSelf, theme }) => ({
@@ -52,9 +52,9 @@ const StyledGrid = styled.div(
     gridAutoColumns: autoColumns,
     gridAutoFlow: autoFlow,
     gridTemplateAreas: `"${templateAreas.join('" "')}"`,
-    gridGap: theme.formatSpace(gap),
-    gridColumnGap: theme.formatSpace(columnGap),
-    gridRowGap: theme.formatSpace(rowGap),
+    gridGap: theme.spaceScale(gap),
+    gridColumnGap: theme.spaceScale(columnGap),
+    gridRowGap: theme.spaceScale(rowGap),
     justifyItems,
     alignItems,
     justifyContent,
@@ -126,7 +126,7 @@ Grid.Item = GridItem
  *
  * @returns the scale with 'rem' appended to it
  */
-Grid.space = scale => formatSpace(scale)
+Grid.space = scale => spaceScale(scale)
 
 /**
  * returns number in fr. Should be used when defining columns and rows

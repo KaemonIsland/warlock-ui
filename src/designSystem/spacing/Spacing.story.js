@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { formatSpace } from '../../theme/spacing'
+import { spaceScale } from '../../theme/spacing'
 import spacing from './Spacing.md'
 
 const StyledBox = styled.div`
-  width: ${({ size }) => formatSpace(size)};
+  width: ${({ size }) => spaceScale(size)};
   height: 2rem;
   background-color: rebeccapurple;
   margin-bottom: 1rem;
@@ -22,7 +22,7 @@ storiesOf('Design System', module)
     <div>
       {sizes.map(size => (
         <>
-          Size: {formatSpace(size)}
+          Size: {spaceScale(size)}
           <StyledBox size={size} />
         </>
       ))}

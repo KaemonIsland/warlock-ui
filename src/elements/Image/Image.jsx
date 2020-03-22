@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const ImageContainer = styled.figure(({ theme, height, width }) => ({
-  maxWidth: theme.formatSpace(width),
-  height: theme.formatSpace(height),
+  maxWidth: theme.spaceScale(width),
+  height: theme.spaceScale(height),
   borderRadius: '1rem',
   overflow: 'hidden',
   boxShadow: theme.boxShadow.single[1],

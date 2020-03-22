@@ -10,14 +10,14 @@ const colors = Object.keys(colorPalette)
 
 const ColorSwatch = styled.div(({ theme, color, variant }) => ({
   background: theme.color[color][variant],
-  width: theme.formatSpace(10),
-  height: theme.formatSpace(8),
-  borderRadius: theme.formatSpace(1),
-  color: theme.getTextContrast(theme.color[color][variant]),
+  width: theme.spaceScale(10),
+  height: theme.spaceScale(8),
+  borderRadius: theme.spaceScale(1),
+  color: theme.textContrast(theme.color[color][variant]),
 }))
 
 const ColorVariant = styled.p`
-  font-size: ${({ theme }) => theme.formatFontSize(1)};
+  font-size: ${({ theme }) => theme.fontScale(1)};
   text-align: center;
   font-weight: bold;
 `
@@ -26,7 +26,7 @@ const SwatchContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 100%;
-  grid-gap: ${({ theme }) => theme.formatSpace(1)};
+  grid-gap: ${({ theme }) => theme.spaceScale(1)};
   justify-items: center;
   align-items: center;
 `

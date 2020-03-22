@@ -1,16 +1,16 @@
-import { spacing, formatSpace } from './spacing'
-import { fontSizes, formatFontSize } from './typography'
-import { color, getTextContrast } from './color'
+import { spacing, spaceScale } from './spacing'
+import { fontSizes, fontScale } from './typography'
+import { color, textContrast } from './color'
 import { boxShadow } from './boxShadow'
 
 export const theme = {
   boxShadow,
   spacing,
-  formatSpace,
+  spaceScale,
   fontSizes,
-  formatFontSize,
+  fontScale,
   color,
-  getTextContrast,
+  textContrast,
   // Based off of max-width
   breakpoint: {
     large: '1200px',

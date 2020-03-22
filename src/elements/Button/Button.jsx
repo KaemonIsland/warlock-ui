@@ -2,18 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const StyledButton = styled.button(({ theme }) => ({
-  fontSize: theme.formatFontSize(4),
+const StyledButton = styled.button(({ theme, color, shade }) => ({
+  fontSize: theme.fontScale(4),
   textTransform: 'uppercase',
-  padding: `${theme.formatSpace(2)} ${theme.formatSpace(5)}`,
-  fontSize: theme.formatFontSize(3),
+  padding: `${theme.spaceScale(2)} ${theme.spaceScale(5)}`,
+  fontSize: theme.fontScale(3),
   borderRadius: '0.5rem',
   transition: 'all 200ms',
   position: 'relative',
   cursor: 'pointer',
-  color: 'black',
+  color: theme.textContrast(
+    color ? theme.color[color][shade || 1] : 'hsl(0, 100%, 100%)'
+  ),
   border: '1px solid black',
-  backgroundColor: 'white',
+  backgroundColor: color ? theme.color[color][shade || 1] : 'white',
   '&:hover, &:focus': {
     transform: 'translateY(-0.3rem)',
     boxShadow: theme.boxShadow.single[2],
@@ -25,11 +27,15 @@ const StyledButton = styled.button(({ theme }) => ({
   },
 }))
 
-export const Button = ({ callback, title }) => (
-  <StyledButton onClick={callback}>{title}</StyledButton>
+export const Button = ({ callback, color, shade, children }) => (
+  <StyledButton color={color} shade={shade} onClick={callback}>
+    {children}
+  </StyledButton>
 )
 
 Button.propTypes = {
-  title: PropTypes.string.isRequired,
-  callback: PropTypes.func.isRequired,
+  callback: PropTypes.func,
+  color: PropTypes.string,
+  shade: PropTypes.number,
+  children: PropTypes.node,
 }

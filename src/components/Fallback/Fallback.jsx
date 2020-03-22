@@ -12,10 +12,10 @@ const FallbackContainer = styled.section(({ theme }) => ({
   justifyItems: 'center',
   width: '100%',
   '& figure': {
-    marginBottom: theme.formatSpace(4),
+    marginBottom: theme.spaceScale(4),
   },
   '& h4': {
-    marginBottom: theme.formatSpace(2),
+    marginBottom: theme.spaceScale(2),
   },
 }))
 

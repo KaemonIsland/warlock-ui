@@ -10,7 +10,7 @@ const OuterContainer = styled.div`
 const CardContainer = styled.div`
   padding: 0.8rem 1.5rem;
   width: 22rem;
-  color: ${({ theme }) => theme.getTextContrast(theme.color.blue[9])};
+  color: ${({ theme }) => theme.textContrast(theme.color.blue[9])};
   background-color: ${({ theme }) => theme.color.blue[9]};
   border-radius: 2rem;
   cursor: pointer;

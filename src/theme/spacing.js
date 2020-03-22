@@ -54,7 +54,7 @@ export const formatPaddingAndMargin = (
     spacingArr[3] = spacingLeft
   }
 
-  return spacingArr.map(unit => formatSpace(unit)).join(' ')
+  return spacingArr.map(unit => (unit && spaceScale(unit)) || 0).join(' ')
 }
 
 // Range of sizes used for fonts/padding/margin etc.
@@ -86,6 +86,6 @@ export const spacing = {
  *
  * @returns {string} formatted sizeMeasurement
  */
-export const formatSpace = (size = 4, unit = 'rem') => {
+export const spaceScale = (size = 4, unit = 'rem') => {
   return `${spacing[size]}${unit}`
 }
