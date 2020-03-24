@@ -6,10 +6,8 @@ const StyledButton = styled.button(({ theme, color, shade }) => ({
   fontSize: theme.fontScale(4),
   textTransform: 'uppercase',
   padding: `${theme.spaceScale(2)} ${theme.spaceScale(5)}`,
-  fontSize: theme.fontScale(3),
   borderRadius: '0.5rem',
   transition: 'all 200ms',
-  position: 'relative',
   cursor: 'pointer',
   color: theme.textContrast(
     color ? theme.color[color][shade || 1] : 'hsl(0, 100%, 100%)'
@@ -27,14 +25,20 @@ const StyledButton = styled.button(({ theme, color, shade }) => ({
   },
 }))
 
-export const Button = ({ callback, color, shade, children }) => (
-  <StyledButton color={color} shade={shade} onClick={callback}>
+export const Button = ({
+  color,
+  shade,
+  type = 'button',
+  children,
+  ...rest
+}) => (
+  <StyledButton color={color} shade={shade} type={type} {...rest}>
     {children}
   </StyledButton>
 )
 
 Button.propTypes = {
-  callback: PropTypes.func,
+  type: PropTypes.string,
   color: PropTypes.string,
   shade: PropTypes.number,
   children: PropTypes.node,

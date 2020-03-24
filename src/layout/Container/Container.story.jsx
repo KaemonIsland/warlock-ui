@@ -10,8 +10,8 @@ storiesOf('Layout', module)
     },
   })
   .add('Container', () => (
-    <Container>
-      I&apos;m here for additional actions.
-      <button>Click me to go back and view other stuff!</button>
+    <Container paddingVertical={2}>
+      I & apos; m here for additional actions.{' '}
+      <button> Click me to go back and view other stuff! </button>{' '}
     </Container>
   ))
