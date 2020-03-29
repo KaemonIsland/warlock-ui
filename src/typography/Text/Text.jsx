@@ -13,9 +13,16 @@ const TextContainer = styled.p(
     display,
     color,
     shade,
+    family,
+    weight = 400,
+    lineHeight,
+    spacing,
   }) => ({
+    fontFamily: `${family}, sans-serif`,
+    lineHeight,
+    letterSpacing: spacing,
     fontSize: `${theme.fontSizes[size]}rem`,
-    fontWeight: isBold ? 'bold' : '',
+    fontWeight: isBold ? 'bold' : weight,
     fontStyle: isItalics ? 'italic' : 'normal',
     alignText: align,
     textTransform: isUpcase && 'uppercase',
@@ -33,6 +40,10 @@ export const Text = ({
   display = 'block',
   color = 'black',
   shade = 0,
+  family,
+  weight,
+  lineHeight,
+  spacing,
   children,
   ...rest
 }) => {
@@ -45,6 +56,10 @@ export const Text = ({
     display,
     color,
     shade,
+    family,
+    weight,
+    lineHeight,
+    spacing,
     ...rest,
   }
   return <TextContainer {...textProps}>{children}</TextContainer>
@@ -59,5 +74,9 @@ Text.propTypes = {
   display: PropTypes.string,
   color: PropTypes.string,
   shade: PropTypes.number,
+  family: PropTypes.string,
+  weight: PropTypes.string,
+  lineHeight: PropTypes.number,
+  spacing: PropTypes.number,
   children: PropTypes.node,
 }

@@ -22,6 +22,13 @@ const shadeOptions = {
   step: 1,
 }
 
+const weightOptions = {
+  range: true,
+  min: 100,
+  max: 900,
+  step: 100,
+}
+
 storiesOf('Typography', module)
   .addParameters({
     readme: {
@@ -31,6 +38,10 @@ storiesOf('Typography', module)
   .add('Text', () => (
     <div>
       <Text
+        family={text('Font Family', '')}
+        weight={number('Weight', 400, weightOptions)}
+        lineHeight={number('Line Height', 1)}
+        spacing={number('Letter Spacing', 1)}
         size={number('Size', 4, sizeOptions)}
         isBold={boolean('isBold', false)}
         isItalics={boolean('isItalics', false)}
