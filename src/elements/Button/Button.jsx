@@ -72,7 +72,7 @@ const StyledButton = styled.button`
     height: 100%;
     left: -20%;
     z-index: -1000;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-out 0.5s;
     background-repeat: no-repeat;
   }
   &:before {
@@ -138,16 +138,16 @@ const StyledButton = styled.button`
 export const Button = withTheme(
   ({
     color,
-    shade,
+    shade = 4,
     type = 'button',
     rounded = 'small',
     size = 'small',
-    variant = 'default',
+    variant = 'filled',
     hover = false,
     isDisabled = false,
     onClick = () => {},
     theme,
-    bubble,
+    bubble = true,
     children,
     ...rest
   }) => {
@@ -186,12 +186,13 @@ export const Button = withTheme(
         paddingSize = `${theme.spaceScale(2)} ${theme.spaceScale(3)}`
     }
 
+    // The default variant is filled. Thus we do not change anything for filled switch case
     const variants = {
       main: {
         border: 'none',
         backgroundColor: color ? theme.color[color][shade || 1] : 'white',
         color: theme.textContrast(
-          color ? theme.color[color][shade || 1] : 'hsl(0, 100%, 100%)'
+          color ? theme.color[color][shade] : 'hsl(0, 100%, 100%)'
         ),
       },
       focus: {
@@ -206,18 +207,20 @@ export const Button = withTheme(
     switch (variant) {
       case 'outline':
         main.border = `1px solid ${theme.color[color][shade || 1]}`
-        main.color = color ? theme.color[color][shade || 1] : 'white'
+        main.color = color ? theme.color[color][shade || 4] : 'black'
         main.backgroundColor = 'white'
         focus.backgroundColor = color
           ? theme.color[color][1]
           : theme.color.grey[1]
         break
       case 'text':
-        main.color = color ? theme.color[color][shade || 1] : 'black'
+        main.color = color ? theme.color[color][shade || 4] : 'black'
         main.backgroundColor = 'white'
         focus.backgroundColor = color
           ? theme.color[color][1]
           : theme.color.grey[1]
+        break
+      case 'filled':
         break
       default:
         break
@@ -232,7 +235,7 @@ export const Button = withTheme(
 
     const buttonStyles = {
       type,
-      hover,
+      hover: !isDisabled && hover,
       isDisabled,
       borderRadius,
       paddingSize,
@@ -240,7 +243,7 @@ export const Button = withTheme(
       color: main.color,
       backgroundColor: main.backgroundColor,
       focusBackground: focus.backgroundColor,
-      bubbleColor: variant === 'default' ? main.backgroundColor : main.color,
+      bubbleColor: variant === 'filled' ? main.backgroundColor : main.color,
       bubble,
       ...rest,
     }
