@@ -44,7 +44,7 @@ storiesOf('Elements', module)
         bubble={boolean('Bubble', true)}
         hover={boolean('Hover', false)}
         isDisabled={boolean('Disabled', false)}
-        variant={select('Style', variantOptions, 'default')}
+        variant={select('Variant', variantOptions, 'filled')}
         size={select('Size', sizeOptions, 'medium')}
         rounded={select('Rounded', roundedOptions, 'small')}
         color={select('Color', colorList, 'magenta')}
