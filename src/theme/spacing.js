@@ -1,5 +1,5 @@
 // Range of sizes used for fonts/padding/margin etc.
-// Range from 1-16. 1 = smallest, 16 = largest
+// Range from 1-16. 1 = smallest, 18 = largest
 export const spacing = {
   1: 0.25, // 4px
   2: 0.5, // 8px
@@ -17,6 +17,8 @@ export const spacing = {
   14: 32, // 512px
   15: 40, // 640px
   16: 48, // 768px
+  17: 60, // 960px
+  18: 72, // 1152px
 }
 
 /**

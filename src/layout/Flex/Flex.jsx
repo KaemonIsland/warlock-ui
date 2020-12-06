@@ -4,16 +4,15 @@ import PropTypes from 'prop-types'
 
 // prettier-ignore
 const StyledFlex = styled.div(({
-  direction,
+  isColumn,
   justifyContent,
   alignItems,
   flexWrap,
   alignContent,
 }) => ({
   display: 'flex',
-  height: '100%',
-  width: '100%',
-  flexDirection: direction,
+  maxWidth: '100%',
+  flexDirection: isColumn ? 'column' : 'row',
   justifyContent,
   alignItems,
   flexWrap,
@@ -23,7 +22,7 @@ const StyledFlex = styled.div(({
 export class Flex extends React.Component {
   render() {
     const {
-      direction,
+      isColumn,
       justifyContent,
       alignItems,
       flexWrap,
@@ -32,7 +31,7 @@ export class Flex extends React.Component {
     } = this.props
 
     const flexStyles = {
-      direction,
+      isColumn,
       justifyContent,
       alignItems,
       flexWrap,
@@ -44,7 +43,7 @@ export class Flex extends React.Component {
 
 Flex.propTypes = {
   children: PropTypes.node,
-  direction: PropTypes.string,
+  isColumn: PropTypes.bool,
   justifyContent: PropTypes.string,
   alignItems: PropTypes.string,
   flexWrap: PropTypes.string,
@@ -52,7 +51,7 @@ Flex.propTypes = {
 }
 
 Flex.defaultProps = {
-  direction: 'row',
+  isColumn: false,
   justifyContent: 'start',
   alignItems: 'start',
   flexWrap: 'nowrap',

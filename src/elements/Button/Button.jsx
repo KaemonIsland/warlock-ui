@@ -201,14 +201,14 @@ export const Button = withTheme(
       case 'outline':
         main.border = `1px solid ${theme.color[color][shade || 1]}`
         main.color = color ? theme.color[color][shade || 4] : 'black'
-        main.backgroundColor = 'white'
+        main.backgroundColor = 'transparent'
         focus.backgroundColor = color
           ? theme.color[color][1]
           : theme.color.grey[1]
         break
       case 'text':
         main.color = color ? theme.color[color][shade || 4] : 'black'
-        main.backgroundColor = 'white'
+        main.backgroundColor = 'transparent'
         focus.backgroundColor = color
           ? theme.color[color][1]
           : theme.color.grey[1]
@@ -221,7 +221,7 @@ export const Button = withTheme(
 
     if (isDisabled) {
       main.color = theme.color.grey[6]
-      main.border = 'none'
+      main.border = '1px solid transparent'
       main.backgroundColor = theme.color.grey[1]
       focus.backgroundColor = theme.color.grey[1]
     }
@@ -255,8 +255,10 @@ export const Button = withTheme(
       <StyledButton
         animate={animate}
         onClick={e => {
-          setAnimate(true)
-          onClick()
+          if (!isDisabled) {
+            setAnimate(true)
+            onClick(e)
+          }
         }}
         {...buttonStyles}
       >

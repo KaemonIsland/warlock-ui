@@ -17,6 +17,7 @@ const TextContainer = styled.p(
     weight = 400,
     lineHeight,
     spacing,
+    ellipse,
   }) => ({
     fontFamily: `${family}, sans-serif`,
     lineHeight,
@@ -24,10 +25,16 @@ const TextContainer = styled.p(
     fontSize: `${theme.fontSizes[size]}rem`,
     fontWeight: isBold ? 'bold' : weight,
     fontStyle: isItalics ? 'italic' : 'normal',
-    alignText: align,
+    textAlign: align,
     textTransform: isUpcase && 'uppercase',
     display,
     color: color !== 'black' ? theme.color[color][shade] : 'black',
+    width: '100%',
+    ...(ellipse && {
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+    }),
   })
 )
 
@@ -39,12 +46,13 @@ export const Text = ({
   isUpcase = false,
   display = 'block',
   color = 'black',
-  shade = 0,
+  shade = 1,
   family,
   weight,
   lineHeight,
   spacing,
   children,
+  ellipse = false,
   ...rest
 }) => {
   const textProps = {
@@ -60,6 +68,7 @@ export const Text = ({
     weight,
     lineHeight,
     spacing,
+    ellipse,
     ...rest,
   }
   return <TextContainer {...textProps}>{children}</TextContainer>
@@ -71,6 +80,7 @@ Text.propTypes = {
   isItalics: PropTypes.bool,
   align: PropTypes.string,
   isUpcase: PropTypes.bool,
+  ellipse: PropTypes.bool,
   display: PropTypes.string,
   color: PropTypes.string,
   shade: PropTypes.number,

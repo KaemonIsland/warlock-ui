@@ -10,7 +10,7 @@ const StyledDivider = styled.div(({ padding }) => ({
 }))
 
 const DividerLine = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.palette.gray.dark};
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray[8]};
 `
 
 export const Divider = ({ withLine = false, padding = '1rem' }) => (
