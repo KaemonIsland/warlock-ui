@@ -77,5 +77,15 @@ storiesOf('Typography', module)
       <Text size={2}>
         {`<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">`}
       </Text>
+      <hr />
+      <Text size={4} family="quicksand">
+        Quicksand:
+      </Text>
+      <Text size={4} family="lato" spacing={2}>
+        AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+      </Text>
+      <Text size={2}>
+        {`<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">`}
+      </Text>
     </div>
   ))

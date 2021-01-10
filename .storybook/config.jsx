@@ -43,6 +43,11 @@ loadFonts(
   'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap'
 )
 
+// Quicksand
+loadFonts(
+  'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'
+)
+
 const ProvideTheme = storyFn => (
   <ThemeProvider>
     <GlobalStyles /> {storyFn()}{' '}

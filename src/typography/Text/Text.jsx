@@ -13,7 +13,7 @@ const TextContainer = styled.p(
     display,
     color,
     shade,
-    family,
+    family = 'roboto',
     weight = 400,
     lineHeight,
     spacing,

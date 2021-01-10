@@ -12,6 +12,7 @@ Please not that the following fonts are free and can be found on google fonts. T
 3. Open Sans
 4. Inter
 5. Lato
+6. Quicksand
 
 **Serif**
 
@@ -20,6 +21,7 @@ Please not that the following fonts are free and can be found on google fonts. T
 ### Headlines
 
 1. Roboto
+2. Quicksand
 
 Your goto for headlines and catching users attention.
 
