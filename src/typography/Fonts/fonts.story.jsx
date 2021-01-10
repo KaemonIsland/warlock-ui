@@ -12,9 +12,7 @@ storiesOf('Typography', module)
   .add('Fonts', () => (
     <div style={{ margin: '1rem' }}>
       <div style={{ marginBottom: '1.5rem' }}>
-        <Text size={4}>
-          Include these links in your head Tag in order to use the font!
-        </Text>
+        <Text size={4}>Include these links in your head Tag in order to use the font!</Text>
       </div>
 
       <Text size={5} family="roboto">
@@ -81,7 +79,7 @@ storiesOf('Typography', module)
       <Text size={4} family="quicksand">
         Quicksand:
       </Text>
-      <Text size={4} family="lato" spacing={2}>
+      <Text size={4} family="quicksand" spacing={2}>
         AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
       </Text>
       <Text size={2}>
