@@ -2,6 +2,8 @@
 
 A collection of UI components created by Kaemon Lovendahl
 
+Check out all the components on storybook at https://kaemonisland.github.io/warlock-ui
+
 ## Motivation
 
 I'm slowly getting into design and as a way to practice I'm creating this collection of UI components. It also helps my work stay consistent across my various projects.
