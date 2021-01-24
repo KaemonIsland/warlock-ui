@@ -10,7 +10,7 @@ storiesOf('Components', module)
     },
   })
   .add('Disclosure', () => (
-    <Disclosure title="Click me to reveal content!">
+    <Disclosure summary="Click me to reveal content!">
       I&apos;m content that is hidden within the disclosure!
     </Disclosure>
   ))

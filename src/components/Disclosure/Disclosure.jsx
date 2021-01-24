@@ -1,47 +1,40 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Text } from '../../typography'
 
-const DisclosureContainer = styled.div`
+const DisclosureContainer = styled.details`
   position: relative;
-  transition: all 300ms ease-in-out;
 `
 
-const DisclosureButton = styled.button`
-  font-size: 1.3rem;
-  font-weight: bold;
-  background-color: transparent;
+const DisclosureSummary = styled.summary`
   border: none;
-  cursor: pointer;
   text-transform: uppercase;
-  overflow: hidden;
 `
 
-const DisclosureContent = styled.div`
-  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-`
-
-export const Disclosure = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
+export const Disclosure = ({
+  summary = '',
+  isOpen = false,
+  summaryProps = {},
+  containerProps = {},
+  children,
+}) => {
   return (
-    <DisclosureContainer>
-      <DisclosureButton
-        type="button"
-        aria-expanded={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-        aria-controls="disclosure-button"
-      >
-        {title}
-      </DisclosureButton>
-      <DisclosureContent id="disclosure-button" isOpen={isOpen}>
-        {children}
-      </DisclosureContent>
+    <DisclosureContainer open={isOpen} {...containerProps}>
+      <DisclosureSummary>
+        <Text display="inline" family="Roboto" {...summaryProps}>
+          {summary}
+        </Text>
+      </DisclosureSummary>
+      {children}
     </DisclosureContainer>
   )
 }
 
 Disclosure.propTypes = {
-  title: PropTypes.string,
+  summary: PropTypes.string,
+  isOpen: PropTypes.bool,
+  summaryProps: PropTypes.object,
+  containerProps: PropTypes.object,
   children: PropTypes.node,
 }
