@@ -8,8 +8,6 @@ Things like computer specs, notes about a product, other details that aren't nec
 
 ## Params
 
-summary, isOpen = false, summaryProps, containerProps, children
-
 | Param          | Type    | Default Value | Required? | Description                                                                               |
 | -------------- | ------- | ------------- | --------- | ----------------------------------------------------------------------------------------- |
 | summary        | string  | ''            | yes       | The disclosure header, this will always be shown and should describe the content it hides |
