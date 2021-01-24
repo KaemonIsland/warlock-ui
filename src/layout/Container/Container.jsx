@@ -27,6 +27,7 @@ const StyledContainer = styled.div(
     marginVertical,
     marginHorizontal,
     shadow,
+    display,
     theme,
   }) => {
     const formattedPadding = formatPaddingAndMargin(
@@ -36,7 +37,7 @@ const StyledContainer = styled.div(
       paddingTop,
       paddingBottom,
       paddingLeft,
-      paddingRight
+      paddingRight,
     )
     const formattedMargin = formatPaddingAndMargin(
       margin,
@@ -45,7 +46,7 @@ const StyledContainer = styled.div(
       marginTop,
       marginBottom,
       marginLeft,
-      marginRight
+      marginRight,
     )
 
     return {
@@ -55,13 +56,14 @@ const StyledContainer = styled.div(
       height,
       minHeight,
       maxHeight,
+      display,
       padding: formattedPadding,
       margin: formattedMargin,
       borderRadius: '0.5rem',
       border: border ? '1px solid black' : 'none',
       boxShadow: shadow ? theme.boxShadow.single[shadow] : '',
     }
-  }
+  },
 )
 
 export const Container = ({
@@ -87,6 +89,7 @@ export const Container = ({
   marginVertical,
   marginHorizontal,
   shadow,
+  display = 'block',
   children,
 }) => {
   const containerStyles = {
@@ -112,6 +115,7 @@ export const Container = ({
     marginVertical,
     marginHorizontal,
     shadow,
+    display,
   }
 
   return <StyledContainer {...containerStyles}>{children}</StyledContainer>

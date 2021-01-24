@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { select } from '@storybook/addon-knobs'
-import { FlipCard, CardSide } from './FlipCard'
+import { FlipCard } from './FlipCard'
 import FlipReadMe from './FlipCard.md'
 
 const flipOptions = {
@@ -23,15 +23,11 @@ storiesOf('Components', module)
         margin: '1rem 0 0 1rem',
       }}
     >
-      <FlipCard
-        flipDirection={select('Flip Direction', flipOptions, 'horizontal')}
-      >
-        <CardSide side="front" backgroundColor="lightblue">
-          Click me to flip!
-        </CardSide>
-        <CardSide side="back" backgroundColor="lightgreen">
-          Wow there is a full other side here!
-        </CardSide>
+      <FlipCard flipDirection={select('Flip Direction', flipOptions, 'horizontal')}>
+        <FlipCard.Front backgroundColor="lightblue">Click me to flip!</FlipCard.Front>
+        <FlipCard.Back backgroundColor="lightgreen">
+          <p>Wow there is a full other side here!</p>
+        </FlipCard.Back>
       </FlipCard>
     </div>
   ))
