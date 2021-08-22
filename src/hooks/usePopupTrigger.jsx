@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 
 /**
@@ -7,18 +7,22 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock'
  *
  * This hook returns utility function close/open along with whether the state is open or not.
  *
+ * @param {object} popupOptions - Options object for trigger or popupProps
+ *
  * @returns {object} - components necessary for accessibility.
  */
-export const usePopupTrigger = (triggerProps = {}, popupProps = {}) => {
+export const usePopupTrigger = (popupOptions = {}) => {
+  const { triggerProps = {}, popupProps = {} } = popupOptions
   const [isOpen, setIsOpen] = useState(false)
   const modalRef = useRef()
+  const buttonRef = useRef()
+  const triggerRef = useRef()
 
   /**
    * Sets isOpen to false
    */
   const handleClose = () => {
     setIsOpen(false)
-    enablePageScroll()
   }
 
   /**
@@ -26,7 +30,6 @@ export const usePopupTrigger = (triggerProps = {}, popupProps = {}) => {
    */
   const handleOpen = () => {
     setIsOpen(true)
-    disablePageScroll()
   }
 
   /**
@@ -43,7 +46,7 @@ export const usePopupTrigger = (triggerProps = {}, popupProps = {}) => {
     }
   }
 
-  const trigger = { onClick: handleOpen, ...triggerProps }
+  const trigger = { onClick: handleOpen, ref: triggerRef, ...triggerProps }
 
   const popup = {
     onClickOutside: handleClickOutside,
@@ -52,8 +55,31 @@ export const usePopupTrigger = (triggerProps = {}, popupProps = {}) => {
     role: 'dialog',
     onClose: handleClose,
     modalRef,
+    buttonRef,
     ...popupProps,
   }
+
+  /**
+   * Decides whether to enable/disable scrolling when the modal is open/closed.
+   */
+  useEffect(() => {
+    if (isOpen) {
+      disablePageScroll()
+    } else {
+      enablePageScroll()
+    }
+  }, [isOpen])
+
+  /**
+   * Moves focus to the modal close button when it is opened
+   */
+  useEffect(() => {
+    if (isOpen) {
+      buttonRef.current && buttonRef.current.focus()
+    } else {
+      triggerRef.current && triggerRef.current.focus()
+    }
+  }, [isOpen])
 
   return {
     popup,

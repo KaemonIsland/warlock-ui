@@ -1,6 +1,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import styled from 'styled-components'
+import FocusTrap from 'focus-trap-react'
 
 const ModalBackdrop = styled.aside`
   position: fixed;
@@ -8,9 +9,9 @@ const ModalBackdrop = styled.aside`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 1000;
   transform: translateZ(0);
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: hsla(0, 0%, 49%, 0.35);
 `
 
 const ModalContainer = styled.div`
@@ -19,7 +20,9 @@ const ModalContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 2.5em 1.5em 1.5em 1.5em;
+  border-radius: ${({ theme }) => theme.spaceScale(1)};
+  padding: ${({ theme }) => theme.spaceScale(5)};
+  padding-top: ${({ theme }) => theme.spaceScale(7)};
   background-color: #ffffff;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
@@ -30,7 +33,7 @@ const ModalContainer = styled.div`
     top: 50%;
     height: auto;
     transform: translate(-50%, -50%);
-    max-width: 30em;
+    max-width: ${({ theme }) => theme.spaceScale(14)};
     max-height: calc(100% - 1em);
   }
 `
@@ -41,10 +44,18 @@ const CloseButton = styled.button`
   right: 0;
   padding: 0.5em;
   line-height: 1;
-  background: #f6f6f7;
-  border: 0;
+  background: ${({ theme }) => theme.color.grey[1]};
+  border: 2px solid ${({ theme }) => theme.color.grey[1]};
+  border-radius: 0 ${({ theme }) => theme.spaceScale(1)} 0 0;
   box-shadow: 0;
   cursor: pointer;
+  outline: none;
+
+  &:focus,
+  &:active,
+  &:hover {
+    border: 2px solid ${({ theme }) => theme.color.grey[3]};
+  }
 `
 
 const CloseButtonIcon = styled.svg`
@@ -79,6 +90,9 @@ const CloseButtonText = styled.span`
  * @param {function} onClose - Function that gets called when the close icon is clicked
  * @param {string} role - The role of the modal
  * @param {string} ariaLabel - A label describing the Modal's current content
+ * @param {ref} modalRef - Used to reference the modal for onClickOutside handling
+ * @param {ref} buttonRef - Allows focusing and un-focusing of the modal when it's opened/closed.
+ * @param {function} onClickOutside - Handles clicking outside the modal, used for closing it automatically.
  *
  * @returns {function} React component that is rendered at the end of the content
  */
@@ -86,8 +100,9 @@ export const Modal = ({
   isOpen,
   onClose,
   role = 'dialog',
-  ariaLabel = '',
+  ariaLabel = 'modal',
   modalRef,
+  buttonRef,
   onClickOutside,
   children,
   ...props
@@ -97,24 +112,26 @@ export const Modal = ({
   }
 
   return createPortal(
-    <ModalBackdrop
-      aria-modal="true"
-      tabIndex="-1"
-      role={role}
-      aria-label={ariaLabel}
-      onClick={onClickOutside}
-      {...props}
-    >
-      <ModalContainer ref={modalRef}>
-        <CloseButton onClick={onClose} aria-labelledby="close-modal">
-          <CloseButtonText id="close-modal">Close Modal</CloseButtonText>
-          <CloseButtonIcon viewBox="0 0 40 40">
-            <path d="M 10,10 L 30,30 M 30,10 L 10,30"></path>
-          </CloseButtonIcon>
-        </CloseButton>
-        <ModalMainContent>{children}</ModalMainContent>
-      </ModalContainer>
-    </ModalBackdrop>,
+    <FocusTrap as="aside">
+      <ModalBackdrop
+        aria-modal="true"
+        tabIndex="-1"
+        role={role}
+        aria-label={ariaLabel}
+        onClick={onClickOutside}
+        {...props}
+      >
+        <ModalContainer ref={modalRef}>
+          <CloseButton onClick={onClose} aria-labelledby="close-modal" ref={buttonRef}>
+            <CloseButtonText id="close-modal">Close Modal</CloseButtonText>
+            <CloseButtonIcon viewBox="0 0 40 40">
+              <path d="M 10,10 L 30,30 M 30,10 L 10,30"></path>
+            </CloseButtonIcon>
+          </CloseButton>
+          <ModalMainContent>{children}</ModalMainContent>
+        </ModalContainer>
+      </ModalBackdrop>
+    </FocusTrap>,
     document.body,
   )
 }
