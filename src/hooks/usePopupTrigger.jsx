@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { disablePageScroll, enablePageScroll } from 'scroll-lock'
+import scrollLock from 'scroll-lock'
 
 /**
  * Hook for handling popup accessability.
@@ -64,9 +64,9 @@ export const usePopupTrigger = (popupOptions = {}) => {
    */
   useEffect(() => {
     if (isOpen) {
-      disablePageScroll()
+      scrollLock.disablePageScroll()
     } else {
-      enablePageScroll()
+      scrollLock.enablePageScroll()
     }
   }, [isOpen])
 
