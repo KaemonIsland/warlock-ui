@@ -50,7 +50,7 @@
     "@storybook/react": "^5.1.11",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-styled-components": "^1.10.6",
+    "babel-plugin-styled-components": "1.13.3",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "eslint-plugin-jest": "^22.15.2",
